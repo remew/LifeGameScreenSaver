@@ -28,13 +28,17 @@ namespace LifeGameScreenSaver
                     ShowScreenSaver();
                     Application.Run();
                 }
-                if (args[0].ToLower().Trim().Substring(0, 2).Equals("/c"))
-                {
-                    //Config
-                }
                 if (args[0].ToLower().Trim().Substring(0, 2).Equals("/p"))
                 {
                     //Preview
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new MainForm(new IntPtr(long.Parse(args[1]))));
+                }
+                if (args[0].ToLower().Trim().Substring(0, 2).Equals("/c"))
+                {
+                    //Config
+                    MessageBox.Show("オプションなし\nこのスクリーンセーバーには、設定できるオプションはありません。", "LifeGame ScreenSaver");
                 }
             }
             else
