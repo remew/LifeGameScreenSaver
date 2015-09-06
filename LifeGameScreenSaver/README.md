@@ -1,0 +1,2 @@
+﻿# LifeGameScreenSaver
+スクリーンセーバーでライフゲームします。

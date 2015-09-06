@@ -16,8 +16,6 @@ namespace LifeGameScreenSaver
         {
             System.Threading.Mutex mutex = new System.Threading.Mutex(false, Application.ProductName);
             if (mutex.WaitOne(0, false) == false) return;
-            GC.KeepAlive(mutex);
-            mutex.Close();
             if (args.Length > 0)
             {
                 if (args[0].ToLower().Trim().Substring(0, 2).Equals("/s"))
@@ -48,6 +46,8 @@ namespace LifeGameScreenSaver
                 ShowScreenSaver();
                 Application.Run();
             }
+            GC.KeepAlive(mutex);
+            mutex.Close();
         }
 
         static void ShowScreenSaver()
